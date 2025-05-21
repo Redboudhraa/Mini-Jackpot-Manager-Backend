@@ -26,8 +26,8 @@ A full-stack application to manage and simulate jackpots built with ASP.NET Core
    ```
 
    Connection string format examples:
-   - SQL Server LocalDB: `Server=(localdb)\\mssqllocaldb;Database=JackpotManager;Trusted_Connection=True;MultipleActiveResultSets=true`
-   - SQL Server: `Server=myServerAddress;Database=JackpotManager;User Id=myUsername;Password=myPassword;`
+   - SQL Server LocalDB: `Data Source=.\\;Initial Catalog=MiniJackpotManager;User ID=YourUsername;Password=YourPassword;MultipleActiveResultSets=True;TrustServerCertificate=True;`
+   - SQL Server: `Data Source=myServerAddress;Initial Catalog=JackpotManager;User ID=YourUsername;Password=YourPassword;MultipleActiveResultSets=True;TrustServerCertificate=True;`
 
 3. Apply EF Core migrations to create the database:
    ```
@@ -68,18 +68,5 @@ dotnet test
 
 The frontend application will be created in a separate folder using React with TypeScript. See the frontend README for more details.
 
-## Assumptions and Design Decisions
 
-1. Jackpot values are stored as decimal to ensure precise financial calculations
-2. The backend uses a repository and service pattern to separate concerns
-3. The system logs jackpot resets to the console
-4. Initial seed data includes three jackpots for demonstration purposes
-5. The API returns information about whether a jackpot was reset after a contribution
-6. CORS is configured to allow requests from the React application running on `http://localhost:3000`
 
-## Further Enhancements
-
-1. Add authentication and authorization
-2. Implement a logging mechanism to track all contributions
-3. Add functionality to create and edit jackpots
-4. Implement real-time updates using SignalR
